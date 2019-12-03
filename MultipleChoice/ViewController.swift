@@ -10,10 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    // MARK: Properties, Outlets
+    @IBOutlet weak var inputStudentAnswers: UITextField!
+    @IBOutlet weak var inputCorrectAnswers: UITextField!
+    @IBOutlet weak var outputResults: UITextView!
+    
+    // MARK: Methods
+    
+    // Runs when view is loaded
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    // MARK: Actions
+    @IBAction func checkStudentAnswers(_ sender: Any) {
+        
+        
+    }
+    
 
 
 }

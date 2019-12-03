@@ -36,6 +36,9 @@
                                 <rect key="frame" x="83" y="198" width="250" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Check Student Answers"/>
+                                <connections>
+                                    <action selector="checkStudentAnswers:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Uyc-4P-L9f"/>
+                                </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="OEe-J4-xO2">
                                 <rect key="frame" x="20" y="241" width="374" height="275"/>
@@ -74,6 +77,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="inputCorrectAnswers" destination="10V-KC-ANO" id="b3q-G9-NN3"/>
+                        <outlet property="inputStudentAnswers" destination="nNd-Wx-JGg" id="d6B-3b-1UR"/>
+                        <outlet property="outputResults" destination="OEe-J4-xO2" id="SHm-hy-3PI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
