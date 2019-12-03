@@ -50,6 +50,29 @@ class ViewController: UIViewController {
             return
         }
         
+        // PROCESS
+        // Iterate over both strings and check to see if answers match up. When they do, increment the count of correct answers.
+        var correctAnswerCount = 0
+        for position in 0...questionCount - 1 {
+            
+            // Get index in each string
+            let studentAnswerIndex = studentAnswers.index(studentAnswers.startIndex, offsetBy: position)
+            let correctAnswerIndex = correctAnswers.index(correctAnswers.startIndex, offsetBy: position)
+            
+            // Compare characters at each index position
+            print("----")
+            print("At character \(position)")
+            print("Student answer is \(studentAnswers[studentAnswerIndex])")
+            print("Correct answer is \(correctAnswers[correctAnswerIndex])")
+            if studentAnswers[studentAnswerIndex] == correctAnswers[correctAnswerIndex] {
+                correctAnswerCount += 1
+            }
+            
+        }
+        
+        // OUTPUT
+        // Indicate how many correct answers there are
+        outputResults.text = "The student answered \(correctAnswerCount) question(s) correctly."
         
     }
     
