@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     // MARK: Properties, Outlets
+    @IBOutlet weak var inputQuestionCount: UITextField!
     @IBOutlet weak var inputStudentAnswers: UITextField!
     @IBOutlet weak var inputCorrectAnswers: UITextField!
     @IBOutlet weak var outputResults: UITextView!
