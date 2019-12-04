@@ -30,6 +30,9 @@ class ViewController: UIViewController {
         // Clear prior output messages
         outputResults.text = ""
         
+        // Define valid choices
+        let validChoices = "ABCDE"
+        
         // INPUT
         // 1. Get the number of questions on the test.
         //    Ensure the input provided is an integer.
@@ -43,27 +46,40 @@ class ViewController: UIViewController {
             outputResults.text = "Please be sure you input exactly \(questionCount) student answers."
             return
         }
-        
+                
         // 3. Get the correct answers
         guard let correctAnswers = inputCorrectAnswers.text, correctAnswers.count == questionCount else {
             outputResults.text = "Please be sure you input exactly \(questionCount) answers for the answer key."
             return
         }
         
-        // PROCESS
+        // PROCESS & CHECK INPUT
         // Iterate over both strings and check to see if answers match up. When they do, increment the count of correct answers.
         var correctAnswerCount = 0
         for (position, studentAnswer) in studentAnswers.enumerated() {
             
+            
             // Get index in each string
             let correctAnswerIndex = correctAnswers.index(correctAnswers.startIndex, offsetBy: position)
             
-            // Compare characters at each index position
+            // Get correct answer
+            let correctAnswer = correctAnswers[correctAnswerIndex]
+            
+            // Check that student answers are valid
+            if validChoices.contains(studentAnswer) == false {
+                outputResults.text = "Student answers contain invalid choices. Please ensure that only characters A, B, C, D, or E are used."
+                return
+            } else if validChoices.contains(correctAnswer) == false {
+                outputResults.text = "Correct answers contain invalid choices. Please ensure that only characters A, B, C, D, or E are used."
+                return
+            }
+
+            // Compare student response to correct answer
             print("----")
             print("At character \(position)")
             print("Student answer is \(studentAnswer)")
-            print("Correct answer is \(correctAnswers[correctAnswerIndex])")
-            if studentAnswer == correctAnswers[correctAnswerIndex] {
+            print("Correct answer is \(correctAnswer)")
+            if studentAnswer == correctAnswer {
                 correctAnswerCount += 1
             }
             
