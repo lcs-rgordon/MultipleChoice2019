@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         // PROCESS
         // Iterate over both strings and check to see if answers match up. When they do, increment the count of correct answers.
         var correctAnswerCount = 0
-        for position in 0...questionCount - 1 {
+        for (position, character) in studentAnswers.enumerated() {
             
             // Get index in each string
             let studentAnswerIndex = studentAnswers.index(studentAnswers.startIndex, offsetBy: position)
