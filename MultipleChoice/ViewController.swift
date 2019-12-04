@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: Properties, Outlets
     @IBOutlet weak var inputQuestionCount: UITextField!
@@ -25,6 +25,12 @@ class ViewController: UIViewController {
         
         // Put focus on first input field when program begins
         inputQuestionCount.becomeFirstResponder()
+        
+        // Set delegates
+        inputQuestionCount.delegate = self
+        inputStudentAnswers.delegate = self
+        inputCorrectAnswers.delegate = self
+        
     }
     
     // MARK: Actions
@@ -32,6 +38,11 @@ class ViewController: UIViewController {
         
         // Clear prior output messages
         outputResults.text = ""
+        
+        // Make sure focus is removed from any input fields.
+        inputQuestionCount.resignFirstResponder()
+        inputStudentAnswers.resignFirstResponder()
+        inputCorrectAnswers.resignFirstResponder()
         
         // Define valid choices
         let validChoices = "ABCDE"
@@ -94,7 +105,14 @@ class ViewController: UIViewController {
         
     }
     
-
+    // MARK: UITextFieldDelegate methods
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        
+        // Clear the output message
+        print("editing!")
+        outputResults.text = ""
+        
+    }
 
 }
 
