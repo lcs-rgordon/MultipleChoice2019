@@ -22,6 +22,9 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        // Put focus on first input field when program begins
+        inputQuestionCount.becomeFirstResponder()
     }
     
     // MARK: Actions
